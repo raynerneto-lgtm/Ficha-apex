@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A.P.E.X. — Ficha de Sobrevivente</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="blood-bg"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">A</span>
+      <div>
+        <strong>PROJECT A.P.E.X.</strong>
+        <small>REGISTRO BIOLÓGICO // HELIX DYNAMICS</small>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button id="diceTabBtn" class="tab-btn">DADOS</button>
+      <button id="saveBtn">SALVAR</button>
+      <button id="clearBtn" class="danger">LIMPAR</button>
+    </div>
+  </header>
+
+  <main class="sheet">
+    <div class="warning">
+      <span>●</span> DOCUMENTO CONFIDENCIAL — NÍVEL DE CONTAMINAÇÃO: DESCONHECIDO
+    </div>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">ARQUIVO DE SOBREVIVENTE</p>
+        <h1>FICHA <span>A.P.E.X.</span></h1>
+        <p>Identidade, capacidade e deterioração registradas em um único arquivo.</p>
+      </div>
+      <div class="blood-stamp">BIO<br>HAZARD</div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span>01</span> IDENTIFICAÇÃO</div>
+      <div class="grid identity">
+        <label>Nome<input data-key="nome" placeholder="Nome do personagem"></label>
+        <label>Jogador<input data-key="jogador" placeholder="Nome do jogador"></label>
+        <label>Profissão<input data-key="profissao" placeholder="Profissão"></label>
+        <label>Propósito<input data-key="proposito" placeholder="Propósito"></label>
+        <label>Idade<input data-key="idade" type="number" placeholder="—"></label>
+      </div>
+    </section>
+
+    <section class="panel status-panel">
+      <div class="panel-title"><span>02</span> STATUS VITAIS</div>
+      <div class="status-grid">
+        <label class="status-card"><b>HP</b><input data-key="hp" type="number" value="20"></label>
+        <label class="status-card"><b>SANIDADE</b><input data-key="sanidade" type="number" value="12"></label>
+        <label class="status-card"><b>FÔLEGO</b><input data-key="folego" type="number" value="25"></label>
+        <label class="status-card"><b>IMUNIDADE</b><input data-key="imunidade" type="number" value="0" readonly></label>
+        <label class="status-card"><b>SAÚDE</b><input data-key="saude" type="text" placeholder="Escrever..."></label>
+      </div>
+      <div class="resource-bars">
+        <div class="resource-card">
+          <div class="resource-head"><b>HIDRATAÇÃO</b><span><output id="hidratacaoValue">10</output>/10</span></div>
+          <input class="resource-range" data-key="hidratacao" id="hidratacao" type="range" min="0" max="10" value="10">
+        </div>
+        <div class="resource-card">
+          <div class="resource-head"><b>NUTRIÇÃO</b><span><output id="nutricaoValue">10</output>/10</span></div>
+          <input class="resource-range" data-key="nutricao" id="nutricao" type="range" min="0" max="10" value="10">
+        </div>
+      </div>
+      <div class="dna-box">
+        <span>DNA</span>
+        <input data-key="dna" type="number" value="0">
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span>03</span> ATRIBUTOS</div>
+      <div class="attribute-grid">
+        <label>Força<input data-key="forca" type="number" value="0"></label>
+        <label>Destreza<input data-key="destreza" type="number" value="0"></label>
+        <label>Influência<input data-key="influencia" type="number" value="0"></label>
+        <label>Genoma<input data-key="genoma" type="number" value="0"></label>
+        <label>Metabolismo<input data-key="metabolismo" type="number" value="0"></label>
+        <label>Percepção<input data-key="percepcao" type="number" value="0"></label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span>04</span> PERÍCIAS</div>
+      <div class="skills-grid" id="skills"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span>05</span> VIRTUDE</div>
+      <div class="virtue-grid">
+        <div class="virtue"><span>Coragem</span><input data-key="coragem" type="number" value="1"><i>—</i><span>Medo</span><input data-key="medo" type="number" value="0"></div>
+        <div class="virtue"><span>Sorte</span><input data-key="sorte" type="number" value="1"><i>—</i><span>Azar</span><input data-key="azar" type="number" value="0"></div>
+        <div class="virtue"><span>Razão</span><input data-key="razao" type="number" value="1"><i>—</i><span>Instinto</span><input data-key="instinto" type="number" value="0"></div>
+        <div class="virtue"><span>Desejo</span><input data-key="desejo" type="number" value="1"><i>—</i><span>Apatia</span><input data-key="apatia" type="number" value="0"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span>06</span> TRAUMAS E GATILHOS</div>
+      <textarea data-key="traumas" placeholder="Escrever..."></textarea>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title"><span>07</span> TALENTOS</div>
+      <textarea data-key="talentos" placeholder="Escrever..."></textarea>
+    </section>
+
+    <section class="panel mutation-panel">
+      <div class="panel-title"><span>08</span> MUTAÇÕES</div>
+      <textarea data-key="mutacoes" placeholder="Escrever..."></textarea>
+      <div class="effects-title">EFEITOS</div>
+      <textarea data-key="efeitos" placeholder="Escrever..."></textarea>
+    </section>
+
+    <footer>
+      <span>A.P.E.X. ENGINE</span>
+      <span>HELIX DYNAMICS // BIOLOGICAL ARCHIVE</span>
+      <span id="saveState">ARQUIVO NÃO SALVO</span>
+    </footer>
+  </main>
+
+  <section id="dicePanel" class="dice-overlay" aria-hidden="true">
+    <div class="dice-window">
+      <div class="dice-window-head">
+        <div>
+          <p class="eyebrow">APEX ENGINE // SISTEMA DE TESTE</p>
+          <h2>ROLAGEM DE <span>DADOS</span></h2>
+        </div>
+        <button id="closeDiceBtn" class="close-dice">FECHAR ×</button>
+      </div>
+      <div class="dice-grid">
+        <button class="die-card" data-sides="4"><strong>D4</strong><small>QUATRO FACES</small><span>ROLAR 1D4</span></button>
+        <button class="die-card" data-sides="8"><strong>D8</strong><small>OITO FACES</small><span>ROLAR 1D8</span></button>
+        <button class="die-card" data-sides="10"><strong>D10</strong><small>DEZ FACES</small><span>ROLAR 1D10</span></button>
+        <button class="die-card" data-sides="12"><strong>D12</strong><small>DOZE FACES</small><span>ROLAR 1D12</span></button>
+        <button class="die-card featured" data-sides="20"><strong>D20</strong><small>VINTE FACES</small><span>ROLAR 1D20</span></button>
+      </div>
+
+      <div class="custom-dice">
+        <div class="custom-dice-head">
+          <div>
+            <small>ROLAGEM PERSONALIZADA</small>
+            <strong>MONTE SUA ROLAGEM</strong>
+          </div>
+          <button id="addDiceGroup" class="add-dice" type="button">＋ ADICIONAR DADO</button>
+        </div>
+        <div id="diceGroups" class="dice-groups"></div>
+        <div class="quick-rolls">
+          <span>ATALHOS</span>
+          <button type="button" class="quick-roll" data-formula="2d10">2D10</button>
+          <button type="button" class="quick-roll" data-formula="2d20">2D20</button>
+          <button type="button" class="quick-roll" data-formula="2d10+1d10">2D10 + 1D10</button>
+        </div>
+        <div class="custom-actions">
+          <button id="rollCustomBtn" class="roll-custom" type="button">🎲 GIRAR TUDO</button>
+          <button id="clearDiceBtn" class="clear-dice" type="button">LIMPAR DADOS</button>
+        </div>
+      </div>
+
+      <div class="dice-result" id="diceResult">
+        <small>RESULTADO TOTAL</small>
+        <strong id="diceNumber">—</strong>
+        <span id="diceLabel">Escolha um dado ou monte uma rolagem personalizada.</span>
+        <div id="diceBreakdown" class="dice-breakdown"></div>
+      </div>
+      <div class="dice-history-head"><span>HISTÓRICO</span><button id="clearHistoryBtn" type="button">LIMPAR HISTÓRICO</button></div>
+      <div class="dice-history" id="diceHistory"></div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
